@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body::-webkit-scrollbar-thumb {
+    width: 8px;
+    background-color: #0866ff;
+    border-radius: 20px;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.activeIcon {
+    color: #0866ff;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #777;
+}
+
+#sidebar {
+    height: calc(100vh - 56px);
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background-color: #cfcccc;
+    border-radius: 2px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+#sidebar {
+    overflow-y: hidden;
+}
+
+#sidebar:hover {
+    overflow-y: scroll;
+}
+
+#menuBar {
+    height: calc(100vh - 54px);
+    overflow-y: hidden;
+}
+
+#menuBar:hover {
+    overflow-y: scroll;
+}
+
+#menuBar::-webkit-scrollbar {
+    width: 8px;
+}
+
+#menuBar::-webkit-scrollbar-thumb {
+    background-color: #cfcccc;
+    border-radius: 2px;
+}
+
+#menuBar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+.story-section {
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.story-section::-webkit-scrollbar {
+    display: none;
+}
+
+#createPost {
+    display: none;
+}
+
+#messagePopup {
+    display: none;
+}
+
+#menuBar {
+    display: none;
+}
+
+#profilePopup {
+    overflow-y: hidden;
+}
+
+#profilePopup:hover {
+    overflow-y: scroll;
+}
+
+#profilePopup::-webkit-scrollbar {
+    width: 8px;
+}
+
+#profilePopup::-webkit-scrollbar-thumb {
+    background-color: #cfcccc;
+    border-radius: 2px;
+}
+
+#profilePopup::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+#profilePopup {
+    display: none;
+}
+
+#searchBoxPopup {
+    display: none;
+}
+
+#notificationPopup{
+    display: none;
+}
+
+#messengerPopUp{
+    display: none;
+}
+
+#notificationPopup {
+    overflow-y: hidden;
+}
+
+#notificationPopup:hover {
+    overflow-y: scroll;
+}
+
+#notificationPopup::-webkit-scrollbar {
+    width: 8px;
+}
+
+#notificationPopup::-webkit-scrollbar-thumb {
+    background-color: #cfcccc;
+    border-radius: 2px;
+}
+
+#notificationPopup::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+

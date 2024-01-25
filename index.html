@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="shortcut icon" href="icons/facebook.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body class="bg-mainGray box-border">
+
+    <!-- navbar -->
+
+    <div class="bg-white h-14 px-2 pr-3 sm:px-4 shadow-md fixed w-full z-20 overflow-x-hidden">
+        <!-- nav container -->
+        <div class="flex items-center justify-between h-14">
+            <!-- left nav -->
+            <div class="flex items-center ">
+                <div class="mr-2">
+                    <img class="h-10" src="icons/facebook.png" alt="">
+                </div>
+                <!-- search-box -->
+                <div id="openSearchBox"
+                    class="w-10 xl:w-60 bg-mainGray h-10 flex items-center justify-center px-4 py-1 rounded-full cursor-pointer">
+                    <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+                    <div class=" hidden xl:block bg-transparent text-deepBlack outline-none border-none ml-2 flex-1">
+                        Search Facebook</div>
+                </div>
+                <div class="flex items-center lg:hidden">
+                    <i id="toggleSidebarIcon" class="fa-solid fa-bars text-2xl pl-3 cursor-pointer "></i>
+                </div>
+            </div>
+            <!-- middle navbar -->
+            <div id="middleNavbar" class="hidden md:flex items-center relative gap-12  lg:gap-24 x:-ml-28">
+                <i class="activeIcon bx bx-home-alt text-2xl cursor-pointer"></i>
+                <i class="bx bxl-youtube text-2xl cursor-pointer"></i>
+                <i class="bx bx-store text-2xl cursor-pointer"></i>
+                <i class="bx bx-group text-2xl cursor-pointer"></i>
+                <i class="fa-solid fa-gamepad text-xl cursor-pointer"></i>
+            </div>
+            <!-- right navbar -->
+            <div class="flex items-center gap-3">
+                <i id="gridMenuIcon" class="bx bxs-grid text-3xl bg-gray-200 cursor-pointer p-1.5 rounded-full"></i>
+                <div class="relative">
+                    <i id="messengerIcon"
+                        class="fa-brands fa-facebook-messenger text-xl p-2.5 bg-gray-200 cursor-pointer rounded-full"></i>
+                    <div
+                        class="notification absolute -top-1.5 -right-1 bg-red-600 text-white rounded-full h-5 w-5 font-semibold text-[13px] flex items-center justify-center">
+                        6</div>
+                </div>
+                <div class="relative">
+                    <i id="notificationIcon"
+                        class="fa-solid fa-bell text-xl p-2.5 bg-gray-200 cursor-pointer rounded-full"></i>
+                    <div
+                        class="notification absolute -top-1.5 -right-1 bg-red-600 text-white rounded-full h-5 w-5 font-semibold text-[13px] flex items-center justify-center">
+                        6</div>
+                </div>
+                <!-- profile -->
+                <div class="relative cursor-pointer">
+                    <img id="profilePopUpIcon" class="h-10" src="images/profile.jpg" alt="">
+                    <div class="absolute -bottom-2 right-0 flex items-center justify-center">
+                        <i class="fa-solid fa-angle-down bg-mainGray rounded-full p-0.5 text-sm"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="flex items-start justify-between relative">
+        <!-- left sidebar -->
+
+        <div id="sidebar" class="bg-mainGray  z-10  w-full absolute hidden lg:block lg:w-64  lg:fixed top-14 left-0 py-5 px-2 space-y-4 overflow-scroll">
+            <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                <img class="h-7 rounded-full" src="images/profile.jpg" alt="">
+                <h3 class="font-semibold text-black">H Hamaad Afzal</h3>
+            </div>
+            <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200 ">
+                <img class="h-7" src="icons/friends.png" alt="">
+                <h3 class="font-semibold text-black">Friends</h3>
+            </div>
+            <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                <img class="h-7" src="icons/memories.png" alt="">
+                <h3 class="font-semibold text-black">Memories</h3>
+            </div>
+            <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                <img class="h-7" src="icons/bookmark.png" alt="">
+                <h3 class="font-semibold text-black">Saves</h3>
+            </div>
+            <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                <img class="h-7" src="icons/groups.png" alt="">
+                <h3 class="font-semibold text-black">Groups</h3>
+            </div>
+            <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                <img class="h-7" src="icons/video.png" alt="">
+                <h3 class="font-semibold text-black">Video</h3>
+            </div>
+            <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                <img class="h-7" src="icons/shop.png" alt="">
+                <h3 class="font-semibold text-black">Marketplace</h3>
+            </div>
+            <div id="showmore"
+                class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                <img class="h-7" src="icons/down-arrow.png" alt="">
+                <h3 class="font-semibold text-black">See More</h3>
+            </div>
+
+            <!-- more sidebar options -->
+
+            <div id="showMoreSidebar" class="space-y-4 hidden">
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/blood.png" alt="">
+                    <h3 class="font-semibold text-black">Blood Donation</h3>
+                </div>
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/climate.png" alt="">
+                    <h3 class="font-semibold text-black">Climate Science Center</h3>
+                </div>
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/event.png" alt="">
+                    <h3 class="font-semibold text-black">Events</h3>
+                </div>
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/feed.png" alt="">
+                    <h3 class="font-semibold text-black">Feeds</h3>
+                </div>
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/donation.png" alt="">
+                    <h3 class="font-semibold text-black">Fundraisers</h3>
+                </div>
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/game.png" alt="">
+                    <h3 class="font-semibold text-black">Gaming</h3>
+                </div>
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/messenger.png" alt="">
+                    <h3 class="font-semibold text-black">Messanger</h3>
+                </div>
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/messenger kids.png" alt="">
+                    <h3 class="font-semibold text-black">Messanger Kids</h3>
+                </div>
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/meta.png" alt="">
+                    <h3 class="font-semibold text-black">Meta</h3>
+                </div>
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/facebook-page.png" alt="">
+                    <h3 class="font-semibold text-black">Pages</h3>
+                </div>
+                <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/video-game.png" alt="">
+                    <h3 class="font-semibold text-black">Play Game</h3>
+                </div>
+                <di id="showLess"
+                    class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                    <img class="h-7" src="icons/top-arrow.png" alt="">
+                    <h3 class="font-semibold text-black">See Less</h3>
+                </di>
+            </div>
+
+            <hr class="border border-gray-300 rounded-full w-full my-1">
+            <h3 class="font-semibold text-base text-gray-500 pl-3">Your shortcuts</h3>
+
+            <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                <img class="h-7 w-7 object-cover rounded-full"
+                    src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFkaW5hfGVufDB8fDB8fHww"
+                    alt="">
+                <h3 class="font-semibold text-black">Daily Hadees</h3>
+            </div>
+            <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                <img class="h-7 w-7 object-cover rounded-full"
+                    src="https://images.pexels.com/photos/7984586/pexels-photo-7984586.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="">
+                <h3 class="font-semibold text-black">Say AllahuAkbar</h3>
+            </div>
+            <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                <img class="h-7 w-7 rounded-full object-cover"
+                    src="https://images.unsplash.com/photo-1553755088-ef1973c7b4a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1ha2thaHxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+                <h3 class="font-semibold text-black">Say SubhanAllah</h3>
+            </div>
+            <h5 class="text-gray-500 text-sm">Privacy · Terms · Advertising · Ad · Choices · Cookies · Meta © 2024</h5>
+        </div>
+
+        <!-- middle section -->
+
+        <div id="main-section px-3 sm:px-0 "
+            class="absolute top-14 sm:top-16 px-4 py-5 md:left-[5%] lg:left-64 xl:left-80 sm:left-[10%] left-0 flex items-center justify-center flex-col overflow-y-auto">
+            <!-- story section -->
+            <div class="story-section flex items-center flex-nowrap gap-2 w-[400px] sm:w-[550px] lg:w-[500px] xl:w-[570px] overflow-x-scroll">
+                <div
+                    class="story h-44 w-28 sm:h-60 sm:w-36 rounded-xl shadow bg-white flex items-center justify-between flex-col py-2 cursor-pointer flex-shrink-0">
+                    <img class="h-full w-full object-cover border-b-2 border-solid border-gray-400 mb-1"
+                        src="images/profile.jpg" alt="">
+                    <i
+                        class="fa-solid fa-plus bg-mainBlue text-white rounded-full p-2 -mt-4 shadow-xl shadow-gray-100"></i>
+                    <h4 class="font-semibold text-sm">Create story</h4>
+                </div>
+                <div class="story story3 relative h-44 w-28 sm:h-60 sm:w-36 rounded-xl shadow flex items-center justify-between flex-col py-2 cursor-pointer flex-shrink-0"
+                    style="background: url('images/story1.jpg'); background-size: cover;">
+                    <div
+                        class="absolute top-3 left-3 h-12 w-12 overflow-hidden rounded-full border-2 border-solid border-mainBlue">
+                        <img class="w-full h-full object-cover" src="images/story1Profile.jpg" alt="">
+                    </div>
+                    <h4 class="font-semibold text-sm absolute pl-3 text-left bottom-3 text-white ">Chaudary Abdullah
+                    </h4>
+                </div>
+                <div class="story story3 relative h-44 w-28 sm:h-60 sm:w-36 rounded-xl shadow flex items-center justify-between flex-col py-2 cursor-pointer flex-shrink-0"
+                    style="background: url('images/story1.jpg'); background-size: cover;">
+                    <div
+                        class="absolute top-3 left-3 h-12 w-12 overflow-hidden rounded-full border-2 border-solid border-mainBlue">
+                        <img class="w-full h-full object-cover" src="images/story1Profile.jpg" alt="">
+                    </div>
+                    <h4 class="font-semibold text-sm absolute pl-3 text-left bottom-3 text-white">Chaudary Abdullah</h4>
+                </div>
+                <div class="story story3 relative h-44 w-28 sm:h-60 sm:w-36 rounded-xl shadow flex items-center justify-between flex-col py-2 cursor-pointer flex-shrink-0"
+                    style="background: url('images/story1.jpg'); background-size: cover;">
+                    <div
+                        class="absolute top-3 left-3 h-12 w-12 overflow-hidden rounded-full border-2 border-solid border-mainBlue">
+                        <img class="w-full h-full object-cover" src="images/story1Profile.jpg" alt="">
+                    </div>
+                    <h4 class="font-semibold text-sm absolute pl-3 text-left bottom-3 text-white">Chaudary Abdullah</h4>
+                </div>
+                <div class="story story3 relative h-44 w-28 sm:h-60 sm:w-36 rounded-xl shadow flex items-center justify-between flex-col py-2 cursor-pointer flex-shrink-0"
+                    style="background: url('images/story1.jpg'); background-size: cover;">
+                    <div
+                        class="absolute top-3 left-3 h-12 w-12 overflow-hidden rounded-full border-2 border-solid border-mainBlue">
+                        <img class="w-full h-full object-cover" src="images/story1Profile.jpg" alt="">
+                    </div>
+                    <h4 class="font-semibold text-sm absolute pl-3 text-left bottom-3 text-white">Chaudary Abdullah</h4>
+                </div>
+                <div class="story story3 relative h-44 w-28 sm:h-60 sm:w-36 rounded-xl shadow flex items-center justify-between flex-col py-2 cursor-pointer flex-shrink-0"
+                    style="background: url('images/story1.jpg'); background-size: cover;">
+                    <div
+                        class="absolute top-3 left-3 h-12 w-12 overflow-hidden rounded-full border-2 border-solid border-mainBlue">
+                        <img class="w-full h-full object-cover" src="images/story1Profile.jpg" alt="">
+                    </div>
+                    <h4 class="font-semibold text-sm absolute pl-3 text-left bottom-3 text-white">Chaudary Abdullah</h4>
+                </div>
+                <div class="story story3 relative h-44 w-28 sm:h-60 sm:w-36 rounded-xl shadow flex items-center justify-between flex-col py-2 cursor-pointer flex-shrink-0"
+                    style="background: url('images/story1.jpg'); background-size: cover;">
+                    <div
+                        class="absolute top-3 left-3 h-12 w-12 overflow-hidden rounded-full border-2 border-solid border-mainBlue">
+                        <img class="w-full h-full object-cover" src="images/story1Profile.jpg" alt="">
+                    </div>
+                    <h4 class="font-semibold text-sm absolute pl-3 text-left bottom-3 text-white">Chaudary Abdullah</h4>
+                </div>
+            </div>
+
+            <div class="w-full sm:w-[480px] xl:w-[500px]">
+
+                <!-- post section -->
+
+                <div class="bg-white p-2 sm:p-3 rounded-xl my-4 shadow">
+                    <div class="flex items-center gap-2">
+                        <img class="w-10 h-10 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <div id="openPostBtn"
+                            class="w-full bg-mainGray h-10 rounded-full px-4 border-none outline-none cursor-pointer flex items-center">
+                            What's on your mind, H. Hamaad?</div>
+                    </div>
+                    <hr class="border border-gray-300 rounded-full w-full my-3">
+                    <div class="flex items-center justify-between mt-3 px-4">
+                        <div class="flex items-center gap-2">
+                            <img class="w-5 sm:w-7" src="icons/video-stream.png" alt="">
+                            <h5 class="text-sm sm:text-base">Live Video</h5>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img class="w-5 sm:w-7" src="icons/picture.png" alt="">
+                            <h5 class="text-sm sm:text-base">Photo/Video</h5>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img class="w-5 sm:w-7" src="icons/smiles.png" alt="">
+                            <h5 class="text-sm sm:text-base">Feeling</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- post -->
+
+                <div class="bg-white shadow rounded-xl relative mb-5">
+
+                    <!-- post top portion -->
+
+                    <div class="flex items-center p-4 gap-2">
+                        <div>
+                            <img class="h-10 w-10 rounded-full border-2 border-mainBlue"
+                                src="https://images.unsplash.com/photo-1705599773334-b73b8f707101?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHx8"
+                                alt="">
+                        </div>
+                        <div class="">
+                            <h2 class="font-semibold pb-0.5">Say SubhanAllah</h2>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa-solid fa-star pr-1"></i><span>Favorites - <span>Januray 15 at 10:45 PM - <i
+                                            class="fa-solid fa-earth-europe pl-1"></i></span></span>
+                            </div>
+                        </div>
+                        <div class="absolute right-4 top-4">
+                            <i class="fa-solid fa-ellipsis text-xl cursopo"></i>
+                        </div>
+                    </div>
+                    <h2 class="px-4 pb-3 font-semibold">Recite This After Salah 🌻💖🤍✨✨</h2>
+
+                    <!-- post image -->
+
+                    <img src="https://scontent.flhe1-2.fna.fbcdn.net/v/t39.30808-6/420076170_759001599595125_7122493364820403168_n.jpg?stp=dst-jpg_s960x960&_nc_cat=103&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeGv2980FKpa2DX8U1zY-0txjAKmgEaEw1qMAqaARoTDWoOubHV5o3qGI2fWcZMKjEEGioTzKC7DqCfILhmPg_VG&_nc_ohc=-T8sqSI7SbwAX-Kdv6F&_nc_zt=23&_nc_ht=scontent.flhe1-2.fna&oh=00_AfCYRFYkKrhzHP4s967EzqCJutwYnpw3utwHKgMkHNqmfw&oe=65B1E9EA"
+                        alt="">
+
+                    <!-- post reaction -->
+
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="text-base flex items-center gap-2">
+                            <div><i class="fa-solid fa-thumbs-up text-blue-700"></i><i
+                                    class="fa-solid fa-heart text-red-600"></i></i></div>
+                            <div class="">
+                                20k
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <h2 class="">982 comments</h2>
+                            <h2 class="pl-4">2.1 shares</h2>
+                        </div>
+                    </div>
+
+                    <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                    <!-- like share and comment -->
+
+                    <div class="flex items-center justify-between px-6 pb-3 pt-2">
+                        <div class="flex items-center text-lg">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <h2 class="pl-2">Like</h2>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <i class="fa-regular fa-comment"></i>
+                            <h2 class="pl-2">Comments</h2>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <i class="fa-solid fa-share"></i>
+                            <h2 class="pl-2">Shares</h2>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <!-- post -->
+
+                <div class="bg-white shadow rounded-xl relative mb-5">
+
+                    <!-- post top portion -->
+
+                    <div class="flex items-center p-4 gap-2">
+                        <div>
+                            <img class="h-10 w-10 rounded-full border-2 border-mainBlue"
+                                src="https://images.unsplash.com/photo-1682685797736-dabb341dc7de?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8fA%3D%3D"
+                                alt="">
+                        </div>
+                        <div class="">
+                            <h2 class="font-semibold pb-0.5">X Taskbar Windows Themes</h2>
+                            <div class="flex items-center text-sm text-gray-500">Sponsored - <span> 35m · - <i
+                                        class="fa-solid fa-earth-europe pl-1"></i></span></span>
+                            </div>
+                        </div>
+                        <div class="absolute right-4 top-4">
+                            <i class="fa-solid fa-ellipsis text-xl cursopo"></i>
+                        </div>
+                    </div>
+                    <h2 class="px-4 pb-3 font-semibold">Change the look of your taskbar to make your computer look
+                        modern, beautiful, and show more functionality.
+                        It's very easy and free, doesn't waste your RAM or CPU !</h2>
+
+                    <!-- post image -->
+
+                    <img class="w-full h-auto"
+                        src="https://scontent.flhe1-1.fna.fbcdn.net/v/t45.1600-4/415793492_120205641663360742_9070643493092745795_n.jpg?stp=cp0_dst-jpg_p526x296_q75_spS444&_nc_cat=104&ccb=1-7&_nc_sid=528f85&_nc_eui2=AeGVRejSKIF68cuOsNI5bJukx1geOUXO8L_HWB45Rc7wv5kEwLnJ0X7j9ltjecpTlHCEqhYrS2g9rXj4C85Yc2rP&_nc_ohc=JGR-0jtTcr0AX8yocsj&_nc_ht=scontent.flhe1-1.fna&oh=00_AfBnroDuOkgkf5XcwxHsUxCTnNGSXQX8FObMXUuuorGDeQ&oe=65B18B2A"
+                        alt="">
+
+                    <!-- post reaction -->
+
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="text-base flex items-center gap-2">
+                            <div><i class="fa-solid fa-thumbs-up text-blue-700"></i><i
+                                    class="fa-solid fa-heart text-red-600"></i></i></div>
+                            <div class="">
+                                20k
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <h2 class="">982 comments</h2>
+                            <h2 class="pl-4">2.1 shares</h2>
+                        </div>
+                    </div>
+
+                    <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                    <!-- like share and comment -->
+
+                    <div class="flex items-center justify-between px-6 pb-3 pt-2">
+                        <div class="flex items-center text-lg">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <h2 class="pl-2">Like</h2>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <i class="fa-regular fa-comment"></i>
+                            <h2 class="pl-2">Comments</h2>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <i class="fa-solid fa-share"></i>
+                            <h2 class="pl-2">Shares</h2>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- post -->
+
+                <div class="bg-white shadow rounded-xl relative mb-5">
+
+                    <!-- post top portion -->
+
+                    <div class="flex items-center p-4 gap-2">
+                        <div>
+                            <img class="h-10 w-10 rounded-full border-2 border-mainBlue"
+                                src="https://images.unsplash.com/photo-1682685797661-9e0c87f59c60?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8fA%3D%3D"
+                                alt="">
+                        </div>
+                        <div class="">
+                            <h2 class="font-semibold pb-0.5">Say SubhanAllah</h2>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa-solid fa-star pr-1"></i><span>Favorites - <span> 35m · - <i
+                                            class="fa-solid fa-earth-europe pl-1"></i></span></span>
+                            </div>
+                        </div>
+                        <div class="absolute right-4 top-4">
+                            <i class="fa-solid fa-ellipsis text-xl cursopo"></i>
+                        </div>
+                    </div>
+                    <h2 class="px-4 pb-3 font-semibold">Must Read 🌻💖✨</h2>
+
+                    <!-- post image -->
+
+                    <img src="https://scontent.flhe1-1.fna.fbcdn.net/v/t39.30808-6/420075715_759843959510889_4318741653024782887_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeEXEy1oNHzImGUiZydwKPg_UJRyyBN35bRQlHLIE3fltGkpvfCx1S0ny5qtYqpvSq6rPbYgJCLIGMGV3S6v1eC-&_nc_ohc=uPUrHRHhaa0AX-FawWz&_nc_zt=23&_nc_ht=scontent.flhe1-1.fna&oh=00_AfBXMUuj92zoMZXxjo9Md2CcNzEthLNEANKMq4_6FPrwPg&oe=65B1D74A"
+                        alt="">
+
+                    <!-- post reaction -->
+
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="text-base flex items-center gap-2">
+                            <div><i class="fa-solid fa-thumbs-up text-blue-700"></i><i
+                                    class="fa-solid fa-heart text-red-600"></i></i></div>
+                            <div class="">
+                                20k
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <h2 class="">982 comments</h2>
+                            <h2 class="pl-4">2.1 shares</h2>
+                        </div>
+                    </div>
+
+                    <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                    <!-- like share and comment -->
+
+                    <div class="flex items-center justify-between px-6 pb-3 pt-2">
+                        <div class="flex items-center text-lg">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <h2 class="pl-2">Like</h2>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <i class="fa-regular fa-comment"></i>
+                            <h2 class="pl-2">Comments</h2>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <i class="fa-solid fa-share"></i>
+                            <h2 class="pl-2">Shares</h2>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- post -->
+
+                <div class="bg-white shadow rounded-xl relative mb-5">
+
+                    <!-- post top portion -->
+
+                    <div class="flex items-center p-4 gap-2 flex-shrink-0">
+                        <div>
+                            <img class="h-10 w-10 rounded-full border-2 border-mainBlue"
+                                src="https://images.unsplash.com/photo-1705593540462-c6ca3f8be0d7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="">
+                        </div>
+                        <div class="">
+                            <h2 class="font-semibold pb-0.5 text-balance pr-3">Zahid Ur Rehman Rehman </h2>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <span> 12h ago · <i class="fa-solid fa-earth-europe pl-1"></i></span></span>
+                            </div>
+                        </div>
+                        <div class="absolute right-4 top-4">
+                            <i class="fa-solid fa-ellipsis text-xl cursopo"></i>
+                        </div>
+                    </div>
+                    <h2 class="px-4 pb-3 font-semibold">Must Read 🌻💖✨</h2>
+
+                    <!-- post image -->
+
+                    <img class="w-full h-[450px] object-cover "
+                        src="https://scontent.flhe1-1.fna.fbcdn.net/v/t39.30808-6/421289658_25066669172948743_5350540635801944587_n.jpg?stp=cp6_dst-jpg_p843x403&_nc_cat=104&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeH4Ck7You19rDh04UhIvOo3KWiKWEQQr9gpaIpYRBCv2Ld09ksczkPc7Q8Oh02Y0JprIV4UIoX8mcbboX7nm-Uc&_nc_ohc=w67VQYrAY7IAX-0mfkd&_nc_zt=23&_nc_ht=scontent.flhe1-1.fna&oh=00_AfBJs8Xkh6Q3bJ3ooHfZYBmXcEFAoHzo-chhBXh4225ugw&oe=65B36FEF"
+                        alt="">
+
+                    <!-- post reaction -->
+
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="text-base flex items-center gap-2">
+                            <div><i class="fa-solid fa-thumbs-up text-blue-700"></i><i
+                                    class="fa-solid fa-heart text-red-600"></i></i></div>
+                            <div class="">
+                                20k
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <h2 class="">982 comments</h2>
+                            <h2 class="pl-4">2.1 shares</h2>
+                        </div>
+                    </div>
+
+                    <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                    <!-- like share and comment -->
+
+                    <div class="flex items-center justify-between px-6 pb-3 pt-2">
+                        <div class="flex items-center text-lg">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <h2 class="pl-2">Like</h2>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <i class="fa-regular fa-comment"></i>
+                            <h2 class="pl-2">Comments</h2>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <i class="fa-solid fa-share"></i>
+                            <h2 class="pl-2">Shares</h2>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- post -->
+
+                <div class="bg-white shadow rounded-xl relative mb-5">
+
+                    <!-- post top portion -->
+
+                    <div class="flex items-center p-4 gap-2">
+                        <div>
+                            <img class="h-10 w-10 rounded-full border-2 border-mainBlue" src="images/profile.jpg"
+                                alt="">
+                        </div>
+                        <div class="">
+                            <h2 class="font-semibold pb-0.5">Deen E Islam </h2>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa-solid fa-star pr-1"></i><span>Favorites - <span> 35m · - <i
+                                            class="fa-solid fa-earth-europe pl-1"></i></span></span>
+                            </div>
+                        </div>
+                        <div class="absolute right-4 top-4">
+                            <i class="fa-solid fa-ellipsis text-xl cursopo"></i>
+                        </div>
+                    </div>
+                    <h2 class="px-4 pb-3 font-semibold">Must Read 🌻💖✨</h2>
+
+                    <!-- post image -->
+
+                    <img class="w-full h-[450px] object-cover "
+                        src="https://scontent.flhe1-2.fna.fbcdn.net/v/t39.30808-6/417438991_315657628139871_2693525254603509142_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeGq_eMenT8mHEEVv-SHGfdtUnRb4LgtFUFSdFvguC0VQUbMiMk1GZD7o0-p9sTf5Uj7S6hIwX76jVeyVRxXgmOw&_nc_ohc=ahdu0hHtw8UAX9F6I9A&_nc_zt=23&_nc_ht=scontent.flhe1-2.fna&oh=00_AfAn4rjHxvnlajD6geMnWRXSvhcxxQAEayfq_AHDEgQZnA&oe=65B2C1F1"
+                        alt="">
+
+                    <!-- post reaction -->
+
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="text-base flex items-center gap-2">
+                            <div><i class="fa-solid fa-thumbs-up text-blue-700"></i><i
+                                    class="fa-solid fa-heart text-red-600"></i></i></div>
+                            <div class="">
+                                20k
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <h2 class="">982 comments</h2>
+                            <h2 class="pl-4">2.1 shares</h2>
+                        </div>
+                    </div>
+
+                    <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                    <!-- like share and comment -->
+
+                    <div class="flex items-center justify-between px-6 pb-3 pt-2">
+                        <div class="flex items-center text-lg">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <h2 class="pl-2">Like</h2>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <i class="fa-regular fa-comment"></i>
+                            <h2 class="pl-2">Comments</h2>
+                        </div>
+                        <div class="flex items-center text-lg">
+                            <i class="fa-solid fa-share"></i>
+                            <h2 class="pl-2">Shares</h2>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- right section -->
+
+        <div id="sidebar" class="hidden sidebarScroller w-64 xl:w-72 fixed top-14 right-0 py-5 px-2 space-y-3 overflow-scroll bg-mainGray md:block">
+
+            <h2 class="text-xl cursor-pointer w-full px-1 py-1 rounded-sm hover:bg-gray-200">Your Pages and profiles
+            </h2>
+
+            <!-- other profile -->
+            <div class="flex items-center gap-3 cursor-pointer w-full px-1 py-1 rounded-sm hover:bg-gray-200">
+                <img class="h-8 w-8 object-cover border-2 border-white rounded-full"
+                    src="https://images.unsplash.com/photo-1572358899655-f63ece97bfa5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1vc3F1ZXxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+                <h3 class="font-bold text-gray-700">Say SubhanAllah</h3>
+            </div>
+
+            <!-- other profile notification / detail -->
+
+            <div class="flex items-center gap-3 pl-6 cursor-pointer w-full px-2 py-2 rounded-sm hover:bg-gray-200">
+                <img class="w-5 h-5" src="icons/comment.png" alt="">
+                <p class="text-sm">18 messages</p>
+            </div>
+            <div class="flex items-center gap-3 pl-6 cursor-pointer w-full px-2 py-2 rounded-sm hover:bg-gray-200">
+                <img class="w-5 h-5" src="icons/user-switch.png" alt="">
+                <p class="text-sm">Switch into Page</p>
+            </div>
+            <div class="flex items-center gap-3 pl-6 cursor-pointer w-full px-2 py-2 rounded-sm hover:bg-gray-200">
+                <img class="w-5 h-5" src="icons/promotion.png" alt="">
+                <p class="text-sm">Create promotion</p>
+            </div>
+
+            <hr class="border border-gray-300 rounded-full w-full my-1">
+
+            <!-- friend requests -->
+
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-base text-gray-700 font-semibold">Friend Requests</h2>
+                    <p class="text-blue-500 cursor-pointer font-semibold">See all</p>
+                </div>
+                <div class="flex items-start gap-2">
+                    <img class="w-14 h-14 rounded-full" src="images/profile.jpg" alt="">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-9">
+                            <h3 class="font-semibold text-black">Mehar Abdullah</h3>
+                            <p class="text-mainBlue">16h </p>
+                        </div>
+                        <p class="text-gray-600 text-xs">17 mutual friends</p>
+                        <!-- button -->
+                        <div class="flex items-center gap-2 pt-1">
+                            <button
+                                class="bg-mainBlue px-3 py-1.5 rounded-md text-white font-semibold text-base">Confirm</button>
+                            <button
+                                class="bg-gray-200 px-3 py-1.5 rounded-md text-black font-semibold text-base">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border border-gray-300 rounded-full w-full my-1">
+
+            <!-- birthday -->
+
+            <div class="">
+                <h2 class="text-base text-gray-700 font-semibold">Birthdays</h2>
+                <div class="flex items-center gap-3 pt-3">
+                    <img class="w-8 h-8 object-cover" src="icons/gift.png" alt="">
+                    <p class="text-base font-normal"><span class="font-semibold">Ali Khan</span> and <span
+                            class="font-semibold">6 others</span> have birthday today</p>
+                </div>
+            </div>
+
+            <hr class="border border-gray-300 rounded-full w-full my-1">
+
+            <!-- contacts -->
+
+            <div class="">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-base text-gray-700 font-semibold">Contacts</h2>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <!-- contact list -->
+
+                <div class="space-y-3 mt-3">
+                    <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                        <img class="w-8 h-8 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <h3>Faaiz Khan</h3>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                        <img class="w-8 h-8 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <h3>Masab Haider</h3>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                        <img class="w-8 h-8 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <h3>Shabir Ali</h3>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                        <img class="w-8 h-8 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <h3>Fahad Khan</h3>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                        <img class="w-8 h-8 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <h3>Muhammad Umer</h3>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                        <img class="w-8 h-8 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <h3>Irfan ALi</h3>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                        <img class="w-8 h-8 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <h3>Muhammad Shahid</h3>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                        <img class="w-8 h-8 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <h3>Yasir Ahmad</h3>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                        <img class="w-8 h-8 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <h3>Muhammad Abuzar</h3>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer w-full px-2 py-1 rounded-md hover:bg-gray-200">
+                        <img class="w-8 h-8 rounded-full object-cover" src="images/profile.jpg" alt="">
+                        <h3>Mubasher Bhatti</h3>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border border-gray-300 rounded-full w-full my-1">
+
+            <!-- community chat -->
+
+            <div class="">
+                <h2 class="text-base text-gray-700 font-semibold">Your community chats</h2>
+                <div class="flex items-center gap-3 mt-2 w-full px-1 py-1 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <img class="w-8 h-8 object-cover" src="icons/hand.png" alt="">
+                    <div class="">
+                        <p class="text-base font-normal">General Chat</p>
+                        <p class="text-sm text-gray-500">Mufti Ismail Menk</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border border-gray-300 rounded-full w-full my-1">
+
+            <!-- groups -->
+
+            <div class="space-y-3">
+                <h2 class="text-base text-gray-700 font-semibold">Group Conversations</h2>
+                <!-- groups list -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 w-full px-1 py-1 rounded-sm hover:bg-gray-200 cursor-pointer">
+                        <img class="w-8 h-8 rounded-full object-cover"
+                            src="https://images.unsplash.com/photo-1705359461450-f9ac9d4567c7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="">
+                        <h3 class="font-semibold">LAGENDS OF CSA</h3>
+                    </div>
+                    <div class="flex items-center gap-3 w-full px-1 py-1 rounded-sm hover:bg-gray-200 cursor-pointer">
+                        <img class="h-8 w-8 rounded-full " src="icons/add.png" alt="">
+                        <h3 class="font-semibold">Create new group</h3>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- pop up -->
+
+
+    <!-- create post box -->
+
+    <div id="createPost"
+        class=" fixed inset-0 flex justify-center items-center z-10 bg-gray-100/50 backdrop-opacity-75">
+        <div class="bg-white px-6 py-4 shadow-md rounded-md w-11/12 xs:w-[400px]  md:w-[500px] h-auto relative">
+            <div class="">
+                <!-- top -->
+                <div class="font-bold text-2xl flex justify-center">Create Post</div>
+                <i id="closePostBtn"
+                    class='bx bx-x absolute top-3 right-3 text-3xl bg-gray-200 rounded-full cursor-pointer p-1 font-normal'></i>
+            </div>
+
+            <hr class="border border-gray-300 rounded-full w-full my-4">
+
+            <div class="flex items-start gap-4">
+                <div>
+                    <img class="w-10 h-10 rounded-full object-cover" src="images/profile.jpg" alt="">
+                </div>
+                <div class="">
+                    <h3 class="font-semibold">H Hamaad Afzal</h3>
+                    <div class="space-x-0.5 w-20">
+                        <p class="text-sm bg-gray-200 py-0.5 px-2 rounded-md flex items-center gap-1 font-semibold"><i
+                                class="fa-solid fa-earth-asia text-xs"></i> Public <i
+                                class="fa-solid fa-caret-down text-xs"></i></p>
+                    </div>
+                </div>
+            </div>
+
+            <textarea class="mt-3 w-full h-28 border-none outline-none resize-none text-xl"
+                placeholder="What's on your mind, H. Hamaad?"></textarea>
+
+            <div class="flex items-center justify-between py-2">
+                <img class="w-8 h-8 " src="icons/color.png" alt="">
+                <img class="w-8 h-8 " src="icons/smile.png" alt="">
+            </div>
+
+            <!-- share post option -->
+
+            <div class="flex items-start sm:items-center flex-col gap-3 sm:gap-0 border-2 border-gray-700 py-2 px-3 rounded-lg my-3 sm:flex-row">
+                <div class="flex-1">
+                    <button class="border-none outline-none bg-transparent cursor-pointer text-sm md:text-base">Add to your post</button>
+                </div>
+                <div class="flex items-center gap-2">
+                    <img class="w-6 h-6 md:w-8 md:h-8 object-cover cursor-pointer" src="icons/gallery.png" alt="">
+                    <img class="w-6 h-6 md:w-8 md:h-8 object-cover cursor-pointer" src="icons/user.png" alt="">
+                    <img class="w-6 h-6 md:w-8 md:h-8 object-cover cursor-pointer" src="icons/smile.png" alt="">
+                    <img class="w-6 h-6 md:w-8 md:h-8 object-cover cursor-pointer" src="icons/location.png" alt="">
+                    <img class="w-6 h-6 md:w-8 md:h-8 object-cover cursor-pointer" src="icons/gif.png" alt="">
+                    <i class="fa-solid fa-ellipsis text-2xl font-bold cursor-pointer"></i>
+                </div>
+            </div>
+
+            <!-- post submit btn -->
+
+            <button
+                class="w-full bg-mainBlue text-white py-2 text-center text-base font-semibold rounded-lg">Next</button>
+
+        </div>
+    </div>
+
+    <!-- message popup box button -->
+
+    <i id="openMessage"
+        class="fa-solid fa-pen-to-square fixed bottom-5 right-4 sm:right-4 text-2xl bg-white shadow p-4 cursor-pointer rounded-full"></i>
+
+    <!-- popup message box -->
+
+    <div id="messagePopup"
+        class="fixed bottom-2 right-2 sm:right-24  h-[450px] w-80 shadow rounded-md bg-white py-4 px-3 space-y-3">
+
+        <div class="flex items-center justify-between">
+            <p class="font-semibold">New Message</p>
+            <i id="closePopupMessage" class="fa-solid fa-x text-mainBlue cursor-pointer"></i>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <p>To </p>
+            <input id="toInput" type="text" class="border-none outline-none bg-transparent caret-mainBlue">
+        </div>
+
+        <hr class="border border-gray-300 rounded-full w-full my-1">
+
+        <div class="flex items-center justify-between mt-2">
+            <p id="encryptionStatus">Used end to end encryption</p>
+            <div class="">
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer" onchange="toggleEncryptionStatus()">
+                    <div
+                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <hr class="border border-gray-300 rounded-full w-full">
+
+    </div>
+
+    <!-- menu popup -->
+
+    <div id="menuBar"
+        class="fixed top-[54px] z-10 right-2 h-full w-[320px] md:w-[600px] bg-lightGray rounded-md shadow-2xl py-2 px-2 overflow-y-scroll">
+        <h1 class="font-bold text-2xl pb-2 px-2">Menu</h1>
+
+        <div class="flex items-start gap-4 pb-4">
+            <!-- left menu -->
+
+            <div class="w-3/5 hidden md:block bg-white py-4 px-3 space-y-2 shadow rounded">
+                <!-- search box -->
+
+                <div class="flex items-center bg-mainGray rounded-full py-2 px-3">
+                    <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+                    <input class="bg-transparent border-none outline-none flex-1 px-3" type="search" name="" id=""
+                        placeholder="Search Menu">
+                </div>
+
+                <h1 class="font-semibold text-lg">Social</h1>
+
+                <div class="flex items-start gap-4 w-full px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/event.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Events</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-1 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <div class="h-10 w-10 object-cover">
+                        <i class='bx bxs-user text-3xl text-mainBlue'></i>
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Friends</h3>
+                        <p class="text-sm text-gray-600">Search for friends or people you may know</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <i class='bx bxs-user-circle text-3xl text-mainBlue'></i>
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Groups</h3>
+                        <p class="text-sm text-gray-600">Organize or find groups and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/feed.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Feeds</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/facebook-page.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Pages</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/climate.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Climate</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+                <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                <h1 class="font-semibold text-lg">Entertainment</h1>
+
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/game.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Gaming</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/video-game.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Play games</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/video.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Videos</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+                <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                <h1 class="font-semibold text-lg">Shopping</h1>
+
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/shop.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Marketplace</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+                <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                <h1 class="font-semibold text-lg">Personal</h1>
+
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/memories.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Memories</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/bookmark.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Saved</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/gallery.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Recent ad activity</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+                <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                <h1 class="font-semibold text-lg">Professionals</h1>
+
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <i class='bx bxs-spreadsheet text-3xl text-mainBlue'></i>
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Ads Manager</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/meta.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Meta Bussiness Suit</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+
+                <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                <h1 class="font-semibold text-lg">Community resources</h1>
+
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/blood.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Blood Donation</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/climate.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Climate Science Center </h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+                <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                <h1 class="font-semibold text-lg">More From Meta</h1>
+
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/messenger kids.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Messanger Kids</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 px-2 py-1 rounded-sm hover:bg-gray-200 cursor-pointer    ">
+                    <div class="h-10 w-10 object-cover">
+                        <img src="icons/whatsapp.png" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="font-semibold text-base">Wattsapp</h3>
+                        <p class="text-sm text-gray-600">Organize or find events and other things to do online and
+                            nearby</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- right menu -->
+
+            <div class="w-full md:w-2/5 bg-white py-4 px-1 space-y-2 shadow rounded">
+
+                <h1 class="font-semibold text-lg px-3">Create</h1>
+
+                <div class="flex items-center gap-4 px-2 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <i class='bx bxs-edit text-xl bg-gray-300 rounded-full p-2'></i>
+                    <p class="font-semibold text-base">Post</p>
+                </div>
+                <div class="flex items-center gap-4 px-2 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <i class='bx bx-book-open text-xl bg-gray-300 rounded-full p-2'></i>
+                    <p class="font-semibold text-base">Story</p>
+                </div>
+                <div class="flex items-center gap-4 px-2 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <i class='bx bx-video text-xl bg-gray-300 rounded-full p-2'></i>
+                    <p class="font-semibold text-base">Reels</p>
+                </div>
+                <div class="flex items-center gap-4 px-2 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <i class='bx bxs-star text-xl bg-gray-300 rounded-full p-2'></i>
+                    <p class="font-semibold text-base">Event</p>
+                </div>
+
+                <hr class="border border-gray-300 rounded-full w-full my-1">
+
+                <div class="flex items-center gap-4 px-2 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <i class='bx bx-bell text-xl bg-gray-300 rounded-full p-2'></i>
+                    <p class="font-semibold text-base">Promotion</p>
+                </div>
+                <div class="flex items-center gap-4 px-2 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <i class='bx bxs-group text-xl bg-gray-300 rounded-full p-2'></i>
+                    <p class="font-semibold text-base">Group</p>
+                </div>
+                <div class="flex items-center gap-4 px-2 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <i class='bx bx-calendar-event text-xl bg-gray-300 rounded-full p-2'></i>
+                    <p class="font-semibold text-base">Event</p>
+                </div>
+
+                <div class="flex items-center gap-4 px-2 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                    <i class='bx bxs-store-alt text-xl bg-gray-300 rounded-full p-2'></i>
+                    <p class="font-semibold text-base">Marketing Listing</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- profile popup -->
+
+    <div id="profilePopup"
+        class="fixed top-[54px] bottom-2 right-2 z-10 h-auto w-[350px] bg-white shadow py-3 px-5 rounded-lg overflow-y-scroll">
+        <!-- all profile -->
+
+        <div class="shadow-lg rounded-lg py-3 px-2 space-y-4">
+            <div class="flex items-center gap-4 px-1 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                <div class="w-10 h-10 rounded-full">
+                    <img class="rounded-full" src="images/profile.jpg" alt="">
+                </div>
+                <p class="text-lg font-semibold">H. Hamaad Afzal</p>
+            </div>
+
+            <hr class="border border-gray-300 rounded-full w-full">
+
+            <div class="flex items-center gap-4 px-1 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                <div class="w-10 h-10 rounded-full">
+                    <img class="object-cover rounded-full w-10 h-10"
+                        src="https://images.unsplash.com/photo-1586767003402-8ade266deb64?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGlzbGFtaWN8ZW58MHx8MHx8fDA%3D"
+                        alt="">
+                </div>
+                <p class="text-lg font-semibold">Say SubhanAllah</p>
+            </div>
+
+            <div class="flex items-center gap-4 px-1 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                <div class="w-10 h-10 rounded-full">
+                    <img class="object-cover rounded-full w-10 h-10"
+                        src="https://images.unsplash.com/photo-1553755088-ef1973c7b4a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGlzbGFtaWN8ZW58MHx8MHx8fDA%3D"
+                        alt="">
+                </div>
+                <p class="text-lg font-semibold">Say AllahuAkbar</p>
+            </div>
+
+            <hr class="border border-gray-300 rounded-full w-full">
+
+            <!-- all profile btn -->
+
+            <div class="flex justify-center w-full bg-gray-200 hover:bg-gray-300 cursor-pointer py-2 rounded-md"><button
+                    class="text-sm flex gap-1 font-semibold" type="button"><img class="h-5 w-5"
+                        src="icons/switchProfile.png" alt="">See all profiles</button></div>
+
+        </div>
+
+        <!-- features -->
+
+        <div class="space-y-3 mt-6">
+
+            <div class="flex items-center justify-between px-1 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer ">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full flex items-center  justify-center bg-gray-300">
+                        <i class="fa-brands fa-meta font-bold text-lg"></i>
+                    </div>
+                    <p class="text-base font-semibold">Meta bussiness suit</p>
+                </div>
+                <div>
+                    <img class="w-4 h-4 object-cover" src="icons/up-right-arrow.png" alt="">
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between px-1 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full flex items-center  justify-center bg-gray-300">
+                        <i class="fa-solid fa-gear font-bold text-xl"></i>
+                    </div>
+                    <p class="text-base font-semibold">Setting & privacy</p>
+                </div>
+                <div class="">
+                    <i class="fa-solid fa-angle-right text-xl"></i>
+                </div>
+            </div>
+            <div class="flex items-center justify-between px-1 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full flex items-center  justify-center bg-gray-300">
+                        <i class='bx bx-question-mark text-xl font-bold'></i>
+                    </div>
+                    <p class="text-base font-semibold">Help & support</p>
+                </div>
+                <div class="">
+                    <i class="fa-solid fa-angle-right text-xl"></i>
+                </div>
+            </div>
+            <div class="flex items-center justify-between px-1 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full flex items-center  justify-center bg-gray-300">
+                        <i class='fa-solid fa-moon text-xl font-bold'></i>
+                    </div>
+                    <p class="text-base font-semibold">Display & accessibility</p>
+                </div>
+                <div class="">
+                    <i class="fa-solid fa-angle-right text-xl"></i>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 px-1 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                <div class="w-9 h-9 rounded-full flex items-center  justify-center bg-gray-300">
+                    <i class='fa-solid fa-message text-lg font-bold'></i>
+                </div>
+                <p class="text-base font-semibold">Give feedback</p>
+            </div>
+
+            <div class="flex items-center gap-3 px-1 py-1.5 rounded-sm hover:bg-gray-200 cursor-pointer">
+                <div class="w-9 h-9 rounded-full flex items-center  justify-center bg-gray-300">
+                    <i class="fa-solid fa-right-from-bracket font-bold text-xl"></i>
+                </div>
+                <p class="text-base font-semibold">Log Out</p>
+            </div>
+
+        </div>
+
+        <p class="text-xs text-gray-500 pt-3">Privacy · Terms · Advertising · Ad Choices · Cookies · More · Meta © 2024
+        </p>
+    </div>
+
+    <!-- search box popup -->
+
+    <div id="searchBoxPopup"
+        class="fixed top-0 left-0 shadow-lg rounded-xl min-h-96 w-80 py-3 px-5 bg-white z-10 space-y-4 overflow-y-auto">
+        <!-- search box -->
+
+        <div class="flex items-center gap-3">
+            <i id="closeSearchBox"
+                class="fa-solid fa-arrow-left text-xl cursor-pointer p-1.5 hover:bg-gray-200 hover:rounded-full "></i>
+            <input class="flex-1 bg-mainGray py-2 px-3 rounded-full" type="search" name="" placeholder="Search Facebook"
+                id="">
+        </div>
+
+        <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-base">Recent</h3>
+            <p class="text-mainBlue text-sm">Edit</p>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div>
+                    <img class="h-9 w-9 object-cover rounded-full border-mainBlue"
+                        src="https://images.unsplash.com/photo-1705599773334-b73b8f707101?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHx8"
+                        alt="">
+                </div>
+                <div class="">
+                    <h2 class="font-semibold">Say SubhanAllah</h2>
+                    <div class="flex items-center text-sm text-gray-500">
+                        9+ new
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="fa-solid fa-xmark text-gray-500"></i>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div>
+                    <img class="h-9 w-9 object-cover rounded-full border-mainBlue"
+                        src="https://scontent.flhe1-1.fna.fbcdn.net/v/t39.30808-6/295913871_648854730241351_6618947063169691940_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeGVYRQXTDzMWKWzpwTqtxVmBMa8Aa9vT7sExrwBr29Pu6_bWpoVhAb6ve3CsmtMyuBb09ZgPjDXj-41IbFGUYFR&_nc_ohc=1_N2hGJxwKYAX8ljanV&_nc_zt=23&_nc_ht=scontent.flhe1-1.fna&oh=00_AfDaGwK5Z_Lir6G_s9iZX2HfAGJRT0q0R1A9QW0icByvwA&oe=65B39A32"
+                        alt="">
+                </div>
+                <div class="">
+                    <h2 class="font-semibold">Daily Hadees</h2>
+                    <div class="flex items-center text-sm text-gray-500">
+                        9+ new
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="fa-solid fa-xmark text-gray-500"></i>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div>
+                    <img class="h-9 w-9 object-cover rounded-full border-mainBlue"
+                        src="https://scontent.flhe1-1.fna.fbcdn.net/v/t39.30808-1/419194951_1070040454142361_7176802208633650460_n.jpg?stp=dst-jpg_p320x320&_nc_cat=105&ccb=1-7&_nc_sid=5740b7&_nc_eui2=AeHbmvvsifwMaR-J5eD4Gfzggmz4NZfPH9mCbPg1l88f2ax0jCuLxNQdE30G0XpjYepq4Y-H2Kl_XYEd5tA9X1M6&_nc_ohc=7hnEnXTG4DAAX86NpTB&_nc_ht=scontent.flhe1-1.fna&oh=00_AfCdEEXhJN9a3jDly9_bUspKMtq15gihePq5Ax4zWV2N9g&oe=65B36A2A"
+                        alt="">
+                </div>
+                <div class="">
+                    <h2 class="font-semibold">Muneeb Ahmad</h2>
+                    <div class="flex items-center text-sm text-gray-500">
+                        9+ new
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="fa-solid fa-xmark text-gray-500"></i>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div>
+                    <img class="h-9 w-9 object-cover rounded-full border-mainBlue"
+                        src="https://scontent.flhe1-2.fna.fbcdn.net/v/t39.30808-1/350133056_208136552111329_3372134828319601756_n.jpg?stp=dst-jpg_s320x320&_nc_cat=103&ccb=1-7&_nc_sid=5740b7&_nc_eui2=AeEL42Jl_ISUAQZE7DZ78vqezEzyPnhluJbMTPI-eGW4ltVUU5OwFg0RDpzJf2HNZjmAejrpeI0MiRE5M6lWC92o&_nc_ohc=pXCR8Ua6mKgAX_gBIsp&_nc_ht=scontent.flhe1-2.fna&oh=00_AfAw33T5qIGG-lP5JNIEYie9n1gp5y6SlfXeQPQzmHd0Uw&oe=65B41E49"
+                        alt="">
+                </div>
+                <div class="">
+                    <h2 class="font-semibold">Abdullah Zain</h2>
+                    <div class="flex items-center text-sm text-gray-500">
+                        9+ new
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="fa-solid fa-xmark text-gray-500"></i>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div>
+                    <img class="h-9 w-9 object-cover rounded-full border-mainBlue" src="images/profile.jpg" alt="">
+                </div>
+                <div class="">
+                    <h2 class="font-semibold">H. Hamaad Afzal</h2>
+                    <div class="flex items-center text-sm text-gray-500">
+                        9+ new
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="fa-solid fa-xmark text-gray-500"></i>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div>
+                    <img class="h-9 w-9 object-cover rounded-full border-mainBlue"
+                        src="https://scontent.flhe1-1.fna.fbcdn.net/v/t39.30808-6/418848735_332153666462823_1026588847019258977_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeFsx90LKe1eohUfJXkQZwj95S2qZ8gKdeblLapnyAp15pIQe6fY3dNlsRhHMuvrloq1f73zZONbH713rbhFQEKe&_nc_ohc=AeXJzEI2nAkAX_kbP5e&_nc_zt=23&_nc_ht=scontent.flhe1-1.fna&oh=00_AfDbcvNNkSaWBdp7xN9pK2nwR7VuRCtWVpEbXS-hxmXG-Q&oe=65B40588"
+                        alt="">
+                </div>
+                <div class="">
+                    <h2 class="font-semibold">Say AllahuAkbar</h2>
+                    <div class="flex items-center text-sm text-gray-500">
+                        9+ new
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="fa-solid fa-xmark text-gray-500"></i>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div>
+                    <img class="h-9 w-9 object-cover rounded-full border-mainBlue"
+                        src="https://scontent.flhe1-2.fna.fbcdn.net/v/t39.30808-6/414463294_868529165275330_1604355683742964484_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeEBh_kWff4ywP1e0g7poASCUyweswCORvpTLB6zAI5G-mE6mk7kvwVGO1Xw4BBb_wbaT-70pvyzpfVHY6-ETvEC&_nc_ohc=fQdVVbWcbFIAX8F91PV&_nc_zt=23&_nc_ht=scontent.flhe1-2.fna&oh=00_AfCbU-dFj9icVC1yEIBS5XwGvLbV3bjkjt-mnp3kb2qEnQ&oe=65B40DE5"
+                        alt="">
+                </div>
+                <div class="">
+                    <h2 class="font-semibold">Deen e Islam</h2>
+                    <div class="flex items-center text-sm text-gray-500">
+                        9+ new
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="fa-solid fa-xmark text-gray-500"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- notofication popup -->
+
+    <div id="notificationPopup"
+        class="fixed top-[54px] w-96 right-1 bottom-4 bg-white shadow-2xl rounded-lg z-10 py-3 px-4 space-y-3 overflow-y-scroll">
+
+        <div class="flex items-center justify-between">
+            <h1 class="text-2xl font-bold">Notification</h1>
+            <i class="fa-solid fa-ellipsis cursor-pointer text-2xl"></i>
+        </div>
+
+        <div class="flex item-center gap-3">
+            <p class="text-mainBlue bg-blue-100 font-semibold py-1 px-2 rounded-xl cursor-pointer">All</p>
+            <p class="font-semibold py-1 px-2 cursor-pointer rounded-xl hover:bg-blue-100">Unread</p>
+        </div>
+
+        <div class="flex item-center justify-between">
+            <h3 class="text-lg font-semibold">New</h3>
+            <h3 class="text-sm text-mainBlue font-semibold">See all</h3>
+        </div>
+
+        <!-- notification -->
+
+        <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-full relative flex-shrink-0">
+                <img class="object-cover rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+                    alt="">
+                <img class="absolute h-6 w-6 rounded-full -bottom-1 right-0"
+                    src="https://cdn-icons-png.flaticon.com/128/831/831264.png" alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza post in say SubhanAllah needs approved!
+                <p>
+                <p class="text-sm text-mainBlue">7 minutes ago</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-full relative flex-shrink-0">
+                <img class="object-cover rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+                    alt="">
+                <img class="absolute h-6 w-6 rounded-full -bottom-1 right-0"
+                    src="https://cdn-icons-png.flaticon.com/128/9507/9507041.png" alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza post in say SubhanAllah needs approved!
+                <p>
+                <p class="text-sm text-mainBlue">7 minutes ago</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-full relative flex-shrink-0">
+                <img class="object-cover rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+                    alt="">
+                <img class="absolute h-6 w-6 rounded-full -bottom-1 right-0"
+                    src="https://cdn-icons-png.flaticon.com/128/10307/10307840.png" alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza post in say SubhanAllah needs approved!
+                <p>
+                <p class="text-sm text-mainBlue">7 minutes ago</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-full relative flex-shrink-0">
+                <img class="object-cover rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+                    alt="">
+                <img class="absolute h-6 w-6 rounded-full -bottom-1 right-0"
+                    src="https://cdn-icons-png.flaticon.com/128/831/831264.png" alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza post in say SubhanAllah needs approved!
+                <p>
+                <p class="text-sm text-mainBlue">7 minutes ago</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-full relative flex-shrink-0">
+                <img class="object-cover rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+                    alt="">
+                <img class="absolute h-6 w-6 rounded-full -bottom-1 right-0"
+                    src="https://cdn-icons-png.flaticon.com/128/831/831264.png" alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza post in say SubhanAllah needs approved!
+                <p>
+                <p class="text-sm text-mainBlue">7 minutes ago</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-full relative flex-shrink-0">
+                <img class="object-cover rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+                    alt="">
+                <img class="absolute h-6 w-6 rounded-full -bottom-1 right-0"
+                    src="https://cdn-icons-png.flaticon.com/128/831/831264.png" alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza post in say SubhanAllah needs approved!
+                <p>
+                <p class="text-sm text-mainBlue">7 minutes ago</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-full relative flex-shrink-0">
+                <img class="object-cover rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+                    alt="">
+                <img class="absolute h-6 w-6 rounded-full -bottom-1 right-0"
+                    src="https://cdn-icons-png.flaticon.com/128/831/831264.png" alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza post in say SubhanAllah needs approved!
+                <p>
+                <p class="text-sm text-mainBlue">7 minutes ago</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-full relative flex-shrink-0">
+                <img class="object-cover rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+                    alt="">
+                <img class="absolute h-6 w-6 rounded-full -bottom-1 right-0"
+                    src="https://cdn-icons-png.flaticon.com/128/831/831264.png" alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza post in say SubhanAllah needs approved!
+                <p>
+                <p class="text-sm text-mainBlue">7 minutes ago</p>
+            </div>
+        </div>
+        <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-full relative flex-shrink-0">
+                <img class="object-cover rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
+                    alt="">
+                <img class="absolute h-6 w-6 rounded-full -bottom-1 right-0"
+                    src="https://cdn-icons-png.flaticon.com/128/831/831264.png" alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza post in say SubhanAllah needs approved!
+                <p>
+                <p class="text-sm text-mainBlue">7 minutes ago</p>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- messanger popup -->
+
+    <div id="messengerPopUp"
+        class="fixed top-[54px] w-96 right-1 bottom-4 bg-white shadow-2xl rounded-lg z-10 py-1 px-4 space-y-3 overflow-y-scroll">
+
+        <div class="flex items-center justify-between">
+            <div>
+                <h2 class="text-2xl font-bold">Chats</h2>
+            </div>
+            <div class="flex items-center gap-5 ">
+                <i class="fa-solid fa-ellipsis text-gray-500 text-base"></i>
+                <i class="fa-solid fa-maximize text-gray-500 text-base"></i>
+                <i class="fa-solid fa-pen-to-square text-gray-500 text-base"></i>
+            </div>
+        </div>
+
+        <!-- search box -->
+
+        <div class="flex items-center gap-3 w-full rounded-full bg-gray-200 py-2 px-3">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="bg-transparent border-none outline-none text-base flex-1" type="search" name=""
+                placeholder="Search Messanger" id="">
+        </div>
+
+        <div class="flex item-center gap-3">
+            <p class="text-mainBlue bg-blue-100 font-semibold py-1 px-2 rounded-xl cursor-pointer">Inbox</p>
+            <p class="font-semibold py-1 px-2 cursor-pointer rounded-xl hover:bg-blue-100">Communities</p>
+        </div>
+
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Imran Ali
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hasan
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/flagged/photo-1573740144655-bbb6e88fb18a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Imran Ali
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hasan
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/flagged/photo-1573740144655-bbb6e88fb18a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Imran Ali
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hasan
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/flagged/photo-1573740144655-bbb6e88fb18a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Imran Ali
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hasan
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/flagged/photo-1573740144655-bbb6e88fb18a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Imran Ali
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hasan
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-lg hover:bg-blue-100 cursor-pointer px-1 py-1 pb-8">
+            <div class="w-14 h-14 rounded-full flex-shrink-0">
+                <img class="object-cover rounded-full w-14 h-14"
+                    src="https://images.unsplash.com/flagged/photo-1573740144655-bbb6e88fb18a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="">
+            </div>
+            <div class="text-base font-semibold">
+                <p class="">Ali Hamza
+                <p>
+                <p class="text-sm text-gray-400">Lorem ipsum dolor sit consectetur....</p>
+            </div>
+        </div>
+
+        <div class="fixed bottom-4 w-96 shadow border-t border-black py-2 text-center right-1 bg-white text-mainBlue font-semibold"><a target="_blank" href="https://web.facebook.com/messages/t">See all in Messanger</a></div>
+
+    </div>
+
+    <!-- javascript links -->
+    
+    <script src="https://kit.fontawesome.com/f8e1a90484.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
